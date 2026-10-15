@@ -1,0 +1,30 @@
+MOMENTUM IA Top 3 | cierre NY 2026-10-14 | generado 2026-10-15 08:13:19 EDT
+Fórmula: 100% retorno de EXACTAMENTE 63 intervalos bursátiles estadounidenses; 2026-07-16 a 2026-10-14.
+Universo histórico V5 recuperado: 42 símbolos; válidos: 42; excluidos/N/D: 0.
+NOTA: disponibilidad Bull Market histórica informada, NO verificada hoy. No operar sin puntas locales.
+TOP 10 TEÓRICO (sin filtrar operabilidad local):
+ puesto ticker  score_63_pct  sobre_sma50  cedear_previamente_informado
+      1   PLTR       49.4868         True                         False
+      2   SMCI       44.9757        False                         False
+      3    CRM       36.8804         True                         False
+      4    NOW       34.5832         True                         False
+      5   MSFT       33.3071         True                         False
+      6   MRVL       30.2887         True                         False
+      7   DELL       29.9937        False                          True
+      8   SNOW       24.0945         True                         False
+      9   CRWD       22.3449         True                         False
+     10    XOM       22.0666         True                         False
+
+CARTERA CONFIRMADA POR USUARIO (no implica cotizaciones locales):
+  ANET: 200 CEDEAR PPC ARS 12,090.10; score 15.935%; SMA50 False
+  DELL: 187 CEDEAR PPC ARS 12,790.00; score 29.9937%; SMA50 False
+  CEG: 224 CEDEAR PPC ARS 10,675.04; score 11.2006%; SMA50 True
+
+ROTACIÓN: no es automáticamente ejecutable. Verificar en la revisión cada 5 ruedas ventaja >=5 puntos durante 7 cierres, filtro SMA50, disponibilidad, costos y puntas locales.
+Stops ARS iniciales desde PPC: ANET 10276,59; DELL 10871,50; CEG 9073,78. SIN trailing ni caución.
+Criterio de 7 cierres: valores históricos de score están en el CSV para evaluar comparaciones; no afirmar ejecución.
+
+BENCHMARKS:
+benchmark  retorno_63_pct
+      SPY          2.7695
+      QQQ          3.3671
