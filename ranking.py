@@ -7,8 +7,9 @@ import pandas as pd
 import numpy as np
 import yfinance as yf
 
-# Universo recuperado del cuaderno V5 anterior: 42 acciones, NO los 57 que se mencionaron verbalmente.
-UNIVERSE = ['ANET','DELL','CEG','MU','AVGO','CLS','VST','KLAC','NVDA','AMD','TSM','META','GOOGL','MSFT','AMZN','PLTR','MRVL','AMAT','LRCX','CRWD','PANW','SNOW','ORCL','CRM','NOW','COIN','SMCI','FSLR','ENPH','ETN','GE','XOM','V','IBM','INTC','WDC','PATH','GEV','SNDK','TLN','ALAB','CRWV']
+# Universo de INVESTIGACIÓN ESTADOUNIDENSE: 42 símbolos V5 + 15 candidatos IA/infraestructura.
+# Esto NO demuestra que sea el universo completo históricamente elegible; revisar periódicamente.
+UNIVERSE = ['ANET','DELL','CEG','MU','AVGO','CLS','VST','KLAC','NVDA','AMD','TSM','META','GOOGL','MSFT','AMZN','PLTR','MRVL','AMAT','LRCX','CRWD','PANW','SNOW','ORCL','CRM','NOW','COIN','SMCI','FSLR','ENPH','ETN','GE','XOM','V','IBM','INTC','WDC','PATH','GEV','SNDK','TLN','ALAB','CRWV','ARM','APP','VRT','COHR','LITE','PWR','STX','HPE','NBIS','IREN','OKLO','QCOM','CRDO','APLD','BE']
 # Disponibilidad histórica informada por usuario; no son cotizaciones ni verificación actual de Bull Market.
 LOCAL_PREVIAMENTE_INFORMADOS = {'ANET','DELL','CEG','MU','AVGO','CLS','VST','KLAC','GEV','SNDK','TLN','SKHY'}
 CARTERA = {'ANET':(200,12090.10),'DELL':(187,12790.0),'CEG':(224,10675.04)}
@@ -42,7 +43,7 @@ def calc(out='resultados', end=None):
             for sym in batch: errors[sym]=str(exc)[:170]
     if 'SPY' not in downloaded: raise RuntimeError('No se descargó SPY; imposible fijar calendario común. No hay ranking válido.')
     dates=downloaded['SPY'].index.sort_values().unique()
-    if len(dates)<65:raise RuntimeError(f'Calendario insuficiente: {len(dates)} ruedas; se necesitan al menos 64 cierres y SMA50.')
+    if len(dates)<70:raise RuntimeError(f'Calendario insuficiente: {len(dates)} ruedas; se necesitan al menos 70 cierres para serie de siete scores y SMA50.')
     now_ny=datetime.now(ZoneInfo('America/New_York'))
     # Restringir a ruedas de cierre completas: si se ejecuta antes de las 16:20 ET, descartar la sesión actual.
     if not end and now_ny.time()<datetime.strptime('16:20','%H:%M').time():
@@ -89,14 +90,14 @@ def calc(out='resultados', end=None):
     pd.DataFrame(bench).to_csv(dest/'benchmarks.csv',index=False)
     summary=[f'MOMENTUM IA Top 3 | cierre NY {today.date()} | generado {end_ts}',
              f'Fórmula: 100% retorno de EXACTAMENTE 63 intervalos bursátiles estadounidenses; {back.date()} a {today.date()}.',
-             f'Universo histórico V5 recuperado: {len(UNIVERSE)} símbolos; válidos: {len(df)}; excluidos/N/D: {len(excluded)}.',
-             'NOTA: disponibilidad Bull Market histórica informada, NO verificada hoy. No operar sin puntas locales.',
-             'TOP 10 TEÓRICO (sin filtrar operabilidad local):', top.to_string(index=False),
+             f'Universo estadounidense seguido: {len(UNIVERSE)} símbolos; válidos: {len(df)}; excluidos/N/D: {len(excluded)}.',
+             'RANKING PRINCIPAL: acciones de EE.UU. sin excluir por falta de CEDEAR. Comprabilidad local se revisa APARTE.',
+             'TOP 10 ESTADOUNIDENSE (sin filtrar disponibilidad de CEDEAR):', top.to_string(index=False),
              '\nCARTERA CONFIRMADA POR USUARIO (no implica cotizaciones locales):']
     for sym,(qty,ppc) in CARTERA.items():
         row=df[df.ticker==sym]
         summary.append(f'  {sym}: {qty} CEDEAR PPC ARS {ppc:,.2f}; score {row.iloc[0].score_63_pct if len(row) else "N/D"}%; SMA50 {row.iloc[0].sobre_sma50 if len(row) else "N/D"}')
-    summary += ['\nROTACIÓN: no es automáticamente ejecutable. Verificar en la revisión cada 5 ruedas ventaja >=5 puntos durante 7 cierres, filtro SMA50, disponibilidad, costos y puntas locales.',
+    summary += ['\nROTACIÓN: no es automáticamente ejecutable. Verificar en revisión cada 5 ruedas ventaja >=5 puntos durante 7 cierres, filtro SMA50, costos y riesgo. El usuario comprueba disponibilidad CEDEAR por separado.',
                 'Stops ARS iniciales desde PPC: ANET 10276,59; DELL 10871,50; CEG 9073,78. SIN trailing ni caución.',
                 'Criterio de 7 cierres: valores históricos de score están en el CSV para evaluar comparaciones; no afirmar ejecución.',
                 '\nBENCHMARKS:', pd.DataFrame(bench).to_string(index=False)]
