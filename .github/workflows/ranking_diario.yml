@@ -1,0 +1,36 @@
+
+name: Ranking Momentum IA 63 ruedas
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 19:10 Argentina, lunes a viernes
+    - cron: '10 22 * * 1-5'
+
+permissions:
+  contents: write
+
+jobs:
+  update-ranking:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+
+      - name: Calcular ranking
+        run: python ranking.py --out resultados
+
+      - name: Publicar resultados
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add resultados/
+          git diff --cached --quiet || (git commit -m "Ranking Momentum actualizado" && git push)
