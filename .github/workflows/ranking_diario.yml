@@ -4,10 +4,11 @@ name: Ranking Momentum IA 63 ruedas
 on:
   workflow_dispatch:
   schedule:
-    # Horario de verano de EE.UU.
+    # Horario de verano EE.UU.
     - cron: '17 20 * 3-10 1-5'
-    # Horario de invierno de EE.UU.
-    - cron: '17 21 * 11-2 1-5'
+    # Horario de invierno EE.UU.
+    - cron: '17 21 * 11,12,1,2 1-5'
+
 
 permissions:
   contents: write
