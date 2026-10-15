@@ -1,0 +1,7 @@
+RANKING DIARIO MOMENTUM IA TOP3
+
+Opción rápida: abrir el archivo .ipynb en Google Colab > Ejecutar todas > descargar ZIP con top10 y scores. Requiere Internet.
+
+Automatización opcional: crear repositorio de GitHub y subir ranking.py, requirements.txt y la carpeta .github; habilitar Actions > permisos escritura al repo (Settings > Actions > General > Workflow permissions). La acción se ejecuta lunes-viernes tras cierre de USA y guarda CSV en resultados/. Puede demorarse. Para que el informe de ChatGPT lea automáticamente los resultados hay que suministrar la URL pública del archivo CSV e integrarla en el informe; esa conexión NO está hecha.
+
+IMPORTANTE: el universo corresponde a 42 tickers recuperados del cuaderno V5, no a 57 auditados. Los CEDEARs supuestamente disponibles son referencias históricas informadas, no verificación actual de Bull Market. Ninguna señal es una orden.
