@@ -15,13 +15,21 @@ TOP 10 ESTADOUNIDENSE (sin filtrar disponibilidad de CEDEAR):
       9   MRVL       16.8974        False                         False
      10   CRWD       14.5599        False                         False
 
-CARTERA CONFIRMADA POR USUARIO (no implica cotizaciones locales):
-  ANET: 200 CEDEAR PPC ARS 12,090.10; score 4.5055%; SMA50 False
-  DELL: 187 CEDEAR PPC ARS 12,790.00; score 18.4813%; SMA50 False
-  CEG: 224 CEDEAR PPC ARS 10,675.04; score 7.2139%; SMA50 False
+REGISTRO DE CARTERA (actualizado por confirmación del usuario; sección bursátil conservada sin recalcular):
+Bull Market — Tenencias y ventas confirmadas por el usuario. Importes en ARS por CEDEAR.
+MOMENTUM IA — POSICIONES ABIERTAS (no es el ranking calculado):
+  PLTR: 18 CEDEARs; PPC $105.750,00.
+  MRVL: 73 CEDEARs; PPC $27.080,00.
+  CEG: 224 CEDEARs; PPC PROVISIONAL $10.675,04.
+MOMENTUM IA — POSICIONES CERRADAS:
+  ANET: 200 CEDEARs vendidos a $9.985,00.
+  DELL: 187 CEDEARs vendidos a $9.935,00.
+OTRAS TENENCIAS ACREDITADAS — abiertas, fuera de la cartera Top 3:
+  META: 371 CEDEARs; no vendidos; PPC no informado.
+  GOOGL: 1028 CEDEARs; no vendidos; PPC no informado.
+Sin fechas de operación ni comisiones informadas. Este registro no ejecuta órdenes ni modifica el ranking.
 
 ROTACIÓN: no es automáticamente ejecutable. Verificar en revisión cada 5 ruedas ventaja >=5 puntos durante 7 cierres, filtro SMA50, costos y riesgo. El usuario comprueba disponibilidad CEDEAR por separado.
-Stops ARS iniciales desde PPC: ANET 10276,59; DELL 10871,50; CEG 9073,78. SIN trailing ni caución.
 Criterio de 7 cierres: valores históricos de score están en el CSV para evaluar comparaciones; no afirmar ejecución.
 
 BENCHMARKS:
