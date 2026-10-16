@@ -1,4 +1,4 @@
-MOMENTUM IA Top 3 | cierre NY 2026-10-16 | generado 2026-10-16 18:00:30 EDT
+MOMENTUM IA Top 3 | cierre NY 2026-10-16 | generado 2026-10-16 18:57:56 EDT
 Fórmula: 100% retorno de EXACTAMENTE 63 intervalos bursátiles estadounidenses; 2026-07-20 a 2026-10-16.
 Universo estadounidense seguido: 57 símbolos; válidos: 57; excluidos/N/D: 0.
 RANKING PRINCIPAL: acciones de EE.UU. sin excluir por falta de CEDEAR. Comprabilidad local se revisa APARTE.
@@ -15,7 +15,7 @@ TOP 10 ESTADOUNIDENSE (sin filtrar disponibilidad de CEDEAR):
       9   MRVL       16.8974        False                         False
      10   CRWD       14.5599        False                         False
 
-REGISTRO DE CARTERA (actualizado por confirmación del usuario; sección bursátil conservada sin recalcular):
+REGISTRO DE CARTERA (independiente del ranking):
 Bull Market — Tenencias y ventas confirmadas por el usuario. Importes en ARS por CEDEAR.
 MOMENTUM IA — POSICIONES ABIERTAS (no es el ranking calculado):
   PLTR: 18 CEDEARs; PPC $105.750,00.
