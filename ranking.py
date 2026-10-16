@@ -6,13 +6,13 @@ from zoneinfo import ZoneInfo
 import pandas as pd
 import numpy as np
 import yfinance as yf
+from cartera import lineas_cartera
 
 # Universo de INVESTIGACIÓN ESTADOUNIDENSE: 42 símbolos V5 + 15 candidatos IA/infraestructura.
 # Esto NO demuestra que sea el universo completo históricamente elegible; revisar periódicamente.
 UNIVERSE = ['ANET','DELL','CEG','MU','AVGO','CLS','VST','KLAC','NVDA','AMD','TSM','META','GOOGL','MSFT','AMZN','PLTR','MRVL','AMAT','LRCX','CRWD','PANW','SNOW','ORCL','CRM','NOW','COIN','SMCI','FSLR','ENPH','ETN','GE','XOM','V','IBM','INTC','WDC','PATH','GEV','SNDK','TLN','ALAB','CRWV','ARM','APP','VRT','COHR','LITE','PWR','STX','HPE','NBIS','IREN','OKLO','QCOM','CRDO','APLD','BE']
 # Disponibilidad histórica informada por usuario; no son cotizaciones ni verificación actual de Bull Market.
 LOCAL_PREVIAMENTE_INFORMADOS = {'ANET','DELL','CEG','MU','AVGO','CLS','VST','KLAC','GEV','SNDK','TLN','SKHY'}
-CARTERA = {'ANET':(200,12090.10),'DELL':(187,12790.0),'CEG':(224,10675.04)}
 
 
 def calc(out='resultados', end=None):
@@ -93,12 +93,9 @@ def calc(out='resultados', end=None):
              f'Universo estadounidense seguido: {len(UNIVERSE)} símbolos; válidos: {len(df)}; excluidos/N/D: {len(excluded)}.',
              'RANKING PRINCIPAL: acciones de EE.UU. sin excluir por falta de CEDEAR. Comprabilidad local se revisa APARTE.',
              'TOP 10 ESTADOUNIDENSE (sin filtrar disponibilidad de CEDEAR):', top.to_string(index=False),
-             '\nCARTERA CONFIRMADA POR USUARIO (no implica cotizaciones locales):']
-    for sym,(qty,ppc) in CARTERA.items():
-        row=df[df.ticker==sym]
-        summary.append(f'  {sym}: {qty} CEDEAR PPC ARS {ppc:,.2f}; score {row.iloc[0].score_63_pct if len(row) else "N/D"}%; SMA50 {row.iloc[0].sobre_sma50 if len(row) else "N/D"}')
+             '\nREGISTRO DE CARTERA (independiente del ranking):']
+    summary.extend(lineas_cartera())
     summary += ['\nROTACIÓN: no es automáticamente ejecutable. Verificar en revisión cada 5 ruedas ventaja >=5 puntos durante 7 cierres, filtro SMA50, costos y riesgo. El usuario comprueba disponibilidad CEDEAR por separado.',
-                'Stops ARS iniciales desde PPC: ANET 10276,59; DELL 10871,50; CEG 9073,78. SIN trailing ni caución.',
                 'Criterio de 7 cierres: valores históricos de score están en el CSV para evaluar comparaciones; no afirmar ejecución.',
                 '\nBENCHMARKS:', pd.DataFrame(bench).to_string(index=False)]
     (dest/'informe_resumen.txt').write_text('\n'.join(summary),encoding='utf-8')
@@ -108,3 +105,4 @@ def calc(out='resultados', end=None):
 if __name__=='__main__':
     parser=argparse.ArgumentParser();parser.add_argument('--out',default='resultados');parser.add_argument('--end',default=None)
     args=parser.parse_args();calc(args.out,args.end)
+

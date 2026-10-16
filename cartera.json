@@ -1,0 +1,18 @@
+{
+  "broker": "Bull Market",
+  "fuente": "Tenencias y ventas confirmadas por el usuario",
+  "moneda": "ARS",
+  "momentum_abiertas": [
+    {"ticker": "PLTR", "cantidad": 18, "ppc": "105750.00", "ppc_provisional": false},
+    {"ticker": "MRVL", "cantidad": 73, "ppc": "27080.00", "ppc_provisional": false},
+    {"ticker": "CEG", "cantidad": 224, "ppc": "10675.04", "ppc_provisional": true}
+  ],
+  "momentum_cerradas": [
+    {"ticker": "ANET", "cantidad_vendida": 200, "precio_venta": "9985.00"},
+    {"ticker": "DELL", "cantidad_vendida": 187, "precio_venta": "9935.00"}
+  ],
+  "otras_tenencias": [
+    {"ticker": "META", "cantidad": 371},
+    {"ticker": "GOOGL", "cantidad": 1028}
+  ]
+}
