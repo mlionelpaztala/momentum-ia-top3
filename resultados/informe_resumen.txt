@@ -1,24 +1,24 @@
-MOMENTUM IA Top 3 | cierre NY 2026-10-15 | generado 2026-10-15 16:47:49 EDT
-Fórmula: 100% retorno de EXACTAMENTE 63 intervalos bursátiles estadounidenses; 2026-07-17 a 2026-10-15.
-Universo estadounidense seguido: 57 símbolos; válidos: 56; excluidos/N/D: 1.
+MOMENTUM IA Top 3 | cierre NY 2026-10-16 | generado 2026-10-16 18:00:30 EDT
+Fórmula: 100% retorno de EXACTAMENTE 63 intervalos bursátiles estadounidenses; 2026-07-20 a 2026-10-16.
+Universo estadounidense seguido: 57 símbolos; válidos: 57; excluidos/N/D: 0.
 RANKING PRINCIPAL: acciones de EE.UU. sin excluir por falta de CEDEAR. Comprabilidad local se revisa APARTE.
 TOP 10 ESTADOUNIDENSE (sin filtrar disponibilidad de CEDEAR):
  puesto ticker  score_63_pct  sobre_sma50  cedear_previamente_informado
-      1   PLTR       51.4579         True                         False
-      2   SMCI       45.1199        False                         False
-      3    CRM       44.7409         True                         False
-      4    NOW       43.9074         True                         False
-      5   MSFT       37.2341         True                         False
-      6    HPE       28.2809        False                         False
-      7   MRVL       27.8846         True                         False
-      8   SNOW       24.6077         True                         False
-      9   CRWD       20.4304         True                         False
-     10   DELL       19.6378        False                          True
+      1    CRM       38.7442         True                         False
+      2   PLTR       37.9533         True                         False
+      3    NOW       35.5969         True                         False
+      4   SMCI       32.7318        False                         False
+      5   MSFT       31.7572         True                         False
+      6    HPE       24.0338        False                         False
+      7    XOM       21.4201         True                         False
+      8   DELL       18.4813        False                          True
+      9   MRVL       16.8974        False                         False
+     10   CRWD       14.5599        False                         False
 
 CARTERA CONFIRMADA POR USUARIO (no implica cotizaciones locales):
-  ANET: 200 CEDEAR PPC ARS 12,090.10; score 10.0646%; SMA50 False
-  DELL: 187 CEDEAR PPC ARS 12,790.00; score 19.6378%; SMA50 False
-  CEG: 224 CEDEAR PPC ARS 10,675.04; score 9.1259%; SMA50 False
+  ANET: 200 CEDEAR PPC ARS 12,090.10; score 4.5055%; SMA50 False
+  DELL: 187 CEDEAR PPC ARS 12,790.00; score 18.4813%; SMA50 False
+  CEG: 224 CEDEAR PPC ARS 10,675.04; score 7.2139%; SMA50 False
 
 ROTACIÓN: no es automáticamente ejecutable. Verificar en revisión cada 5 ruedas ventaja >=5 puntos durante 7 cierres, filtro SMA50, costos y riesgo. El usuario comprueba disponibilidad CEDEAR por separado.
 Stops ARS iniciales desde PPC: ANET 10276,59; DELL 10871,50; CEG 9073,78. SIN trailing ni caución.
@@ -26,5 +26,5 @@ Criterio de 7 cierres: valores históricos de score están en el CSV para evalua
 
 BENCHMARKS:
 benchmark  retorno_63_pct
-      SPY          4.0921
-      QQQ          4.8076
+      SPY          3.1068
+      QQQ          2.0802
