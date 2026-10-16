@@ -3,16 +3,92 @@
   "fuente": "Tenencias y ventas confirmadas por el usuario",
   "moneda": "ARS",
   "momentum_abiertas": [
-    {"ticker": "PLTR", "cantidad": 18, "ppc": "105750.00", "ppc_provisional": false},
-    {"ticker": "MRVL", "cantidad": 73, "ppc": "27080.00", "ppc_provisional": false},
-    {"ticker": "CEG", "cantidad": 224, "ppc": "10675.04", "ppc_provisional": true}
+    {
+      "ticker": "PLTR",
+      "cantidad": 18,
+      "ppc": "105750.00",
+      "ppc_provisional": false,
+      "estado": "ABIERTA",
+      "fecha_compra_confirmada": "2026-10-15"
+    },
+    {
+      "ticker": "MRVL",
+      "cantidad": 73,
+      "ppc": "27080.00",
+      "ppc_provisional": false,
+      "estado": "ABIERTA",
+      "fecha_compra_confirmada": "2026-10-15"
+    },
+    {
+      "ticker": "CEG",
+      "cantidad": 224,
+      "ppc": "10675.04",
+      "ppc_provisional": true,
+      "estado": "ABIERTA",
+      "fecha_compra_confirmada": "2026-10-09"
+    }
   ],
   "momentum_cerradas": [
-    {"ticker": "ANET", "cantidad_vendida": 200, "precio_venta": "9985.00"},
-    {"ticker": "DELL", "cantidad_vendida": 187, "precio_venta": "9935.00"}
+    {
+      "ticker": "ANET",
+      "cantidad_vendida": 200,
+      "precio_venta": "9985.00",
+      "estado": "CERRADA",
+      "fecha_venta_confirmada": "2026-10-15",
+      "ppc_compra": "12090.10"
+    },
+    {
+      "ticker": "DELL",
+      "cantidad_vendida": 187,
+      "precio_venta": "9935.00",
+      "estado": "CERRADA",
+      "fecha_venta_confirmada": "2026-10-15",
+      "ppc_compra": "12790.00"
+    }
   ],
   "otras_tenencias": [
-    {"ticker": "META", "cantidad": 371},
-    {"ticker": "GOOGL", "cantidad": 1028}
-  ]
+    {
+      "ticker": "META",
+      "cantidad": 371,
+      "estado": "ACREDITADA_NO_VENDIDA",
+      "procedencia": "Allaria",
+      "destino": "Bull Market",
+      "venta_confirmada": false,
+      "ppc": "N/D"
+    },
+    {
+      "ticker": "GOOGL",
+      "cantidad": 1028,
+      "estado": "ACREDITADA_NO_VENDIDA",
+      "procedencia": "Allaria",
+      "destino": "Bull Market",
+      "venta_confirmada": false,
+      "ppc": "N/D"
+    }
+  ],
+  "fecha_ultimo_estado_confirmado": "2026-10-16",
+  "operaciones_propuestas_no_ejecutadas": [
+    {
+      "accion": "VENDER",
+      "ticker": "MRVL",
+      "reemplazo_propuesto": "CRM",
+      "fecha_revision": "2026-10-16"
+    },
+    {
+      "accion": "VENDER",
+      "ticker": "CEG",
+      "reemplazo_propuesto": "NOW",
+      "fecha_revision": "2026-10-16"
+    }
+  ],
+  "fondos_pendientes": {
+    "prestamo_usd": {
+      "importe": 10000,
+      "tasa_interes_anual": 0,
+      "estado": "OFRECIDO_NO_RECIBIDO",
+      "moneda_deuda": "USD"
+    },
+    "transferencias_META_GOOGL": "ACREDITADAS_EN_BULL_MARKET_NO_VENDIDAS"
+  },
+  "nota": "Registro de tenencias confirmado por usuario; saldos, precios locales actuales y ventas futuras no inferidos. Top3 y ranking calculados independientemente."
 }
