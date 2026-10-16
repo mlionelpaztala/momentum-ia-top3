@@ -22,8 +22,8 @@
     {
       "ticker": "CEG",
       "cantidad": 224,
-      "ppc": "10675.04",
-      "ppc_provisional": true,
+      "ppc": "10694.43",
+      "ppc_provisional": false,
       "estado": "ABIERTA",
       "fecha_compra_confirmada": "2026-10-09"
     }
