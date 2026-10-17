@@ -1,0 +1,27 @@
+{
+  "version": "2026-10-16-podio",
+  "estado": "VIGENTE_POR_DECISION_USUARIO",
+  "ranking": {
+    "universo": "IA_ECOSISTEMA_USA",
+    "retorno_ruedas": 63,
+    "top": 3,
+    "equiponderado": true,
+    "filtro_entrada": "SMA50"
+  },
+  "revision": {
+    "cada_ruedas": 5
+  },
+  "salida": {
+    "tipo": "SOLO_PERDIDA_PODIO_PERSISTENTE",
+    "stop_por_precio": null,
+    "trailing": false,
+    "requiere_fuera_top3_cierres_consecutivos": 7,
+    "ventaja_sustituto_puntos_porcentuales": 5,
+    "ventaja_sostenida_cierres": 7,
+    "ejecutar_solo_en_revision": true,
+    "nota": "Sustituto elegible con SMA50 y condiciones netas de operabilidad local. Sin stop de -15%; gestionar riesgo de caidas potencialmente grandes."
+  },
+  "reingreso": "Solo conforme reglas de seleccion y revision; sin reentrada automatica por precio",
+  "caucion_momentum": false,
+  "ejecucion_ordenes_automatica": false
+}
