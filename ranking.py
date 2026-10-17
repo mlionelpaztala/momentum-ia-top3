@@ -7,6 +7,7 @@ import pandas as pd
 import numpy as np
 import yfinance as yf
 from cartera import lineas_cartera
+import json
 
 # Universo de INVESTIGACIÓN ESTADOUNIDENSE: 42 símbolos V5 + 15 candidatos IA/infraestructura.
 # Esto NO demuestra que sea el universo completo históricamente elegible; revisar periódicamente.
@@ -95,7 +96,9 @@ def calc(out='resultados', end=None):
              'TOP 10 ESTADOUNIDENSE (sin filtrar disponibilidad de CEDEAR):', top.to_string(index=False),
              '\nREGISTRO DE CARTERA (independiente del ranking):']
     summary.extend(lineas_cartera())
-    summary += ['\nROTACIÓN: no es automáticamente ejecutable. Verificar en revisión cada 5 ruedas ventaja >=5 puntos durante 7 cierres, filtro SMA50, costos y riesgo. El usuario comprueba disponibilidad CEDEAR por separado.',
+    estrategia=json.loads(Path(__file__).with_name('estrategia_momentum.json').read_text(encoding='utf-8'))
+    summary += [f"\nESTRATEGIA VIGENTE: {estrategia['salida']['tipo']}; SIN STOP DE PRECIO; revisión cada 5 ruedas; fuera del Top3 7 cierres y ventaja >=5 pp durante 7 cierres antes de rotar. No colocar órdenes automáticamente.",
+                'ROTACIÓN: no es automáticamente ejecutable. Exige confirmar además filtro SMA50 del sustituto, costos y puntas locales; la simple caída del precio NO determina salida.',
                 'Criterio de 7 cierres: valores históricos de score están en el CSV para evaluar comparaciones; no afirmar ejecución.',
                 '\nBENCHMARKS:', pd.DataFrame(bench).to_string(index=False)]
     (dest/'informe_resumen.txt').write_text('\n'.join(summary),encoding='utf-8')
