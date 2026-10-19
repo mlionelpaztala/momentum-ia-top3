@@ -1,0 +1,23 @@
+name: Backtest Momentum vigente 5 y 10 años
+on:
+  workflow_dispatch:
+jobs:
+  simulate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Backtest cinco años
+        run: python backtest_vigente.py --years 5
+      - name: Backtest diez años
+        run: python backtest_vigente.py --years 10
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: backtest-vigente-resultados
+          path: resultados/backtest_vigente/
