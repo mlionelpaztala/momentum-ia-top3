@@ -77,7 +77,10 @@ def backtest(prices, start, fee=0.00121):
                            {"date":str(d.date()),"action":"BUY","ticker":new,"gross_usd":float(gross*(1-fee))}]
                 used_old.add(old);used_new.add(new)
                 outside_count.pop(old,None);outside_count[new]=0
-            pair_count={}
+            # Mantener la continuidad de siete cierres ENTRE revisiones de cinco ruedas.
+            # Eliminar únicamente pares cuya posición salió o cuyo candidato ingresó.
+            pair_count={k:n for k,n in pair_count.items()
+                        if k[0] in shares and k[1] not in shares}
             # Equiponderar solo si existe precio válido de todas las posiciones.
             if len(shares)==3 and all(pd.notna(prices.at[d,t]) for t in shares):
                 nav=sum(q*prices.at[d,t] for t,q in shares.items())+cash
