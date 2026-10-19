@@ -128,7 +128,14 @@ def main():
     prefix=str(a.years)+"y"
     curve.to_csv(directory/("curva_"+prefix+".csv"),index=False)
     orders.to_csv(directory/("operaciones_"+prefix+".csv"),index=False)
-    result["warnings"]=["Universo actual aplicado retrospectivamente; sesgo de selección",
+    # La simulación usa la lista ACTUAL de símbolos; no demuestra elegibilidad
+    # histórica ni incorpora automáticamente excluidas, delistadas o quebradas.
+    # Estos resultados NO constituyen una prueba libre de sesgo de supervivencia.
+    result["validation_status"]="EXPLORATORIO_NO_POINT_IN_TIME"
+    result["historical_universe_validated"]=False
+    result["point_in_time_data_available"]=False
+    result["warnings"]=["NO VALIDADO: universo histórico point-in-time no disponible; no interpretar el CAGR como rendimiento reproducible",
+                        "Universo actual aplicado retrospectivamente; sesgo de selección",
                         "Ejecución al cierre de señal, no reproducible en vivo sin deslizamiento",
                         "USD acciones estadounidenses; no CEDEAR/ARS",
                         "Comisión estimada por operación: "+str(a.fee*100)+"%"]
