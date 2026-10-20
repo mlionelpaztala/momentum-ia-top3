@@ -5,35 +5,89 @@
   "momentum_abiertas": [
     {
       "ticker": "PLTR",
-      "cantidad": 18,
-      "ppc": "105750.00",
+      "cantidad": 65,
+      "ppc": "105894.62",
       "ppc_provisional": false,
       "estado": "ABIERTA",
-      "fecha_compra_confirmada": "2026-10-15"
+      "fecha_compra_confirmada": "2026-10-15",
+      "compras_confirmadas": [
+        {
+          "fecha": "2026-10-15",
+          "cantidad": 18,
+          "precio_unitario_ars": 105750,
+          "importe_bruto_ars": 1903500
+        },
+        {
+          "fecha": "2026-10-20",
+          "hora_argentina": "14:24",
+          "cantidad": 47,
+          "precio_unitario_ars": 105950,
+          "importe_bruto_ars": 4979650,
+          "importe_orden_ars": 4979650,
+          "fuente": "Captura Bull Market orden operada 100%"
+        }
+      ],
+      "fecha_ultima_compra_confirmada": "2026-10-20"
     },
     {
       "ticker": "MRNA",
-      "cantidad": 103,
-      "ppc": "19190.00",
+      "cantidad": 350,
+      "ppc": "20178.00",
       "ppc_provisional": false,
       "fecha_compra_confirmada": "2026-10-19",
       "hora_compra_argentina": "11:14",
       "estado": "ABIERTA",
       "importe_bruto_compra_ars": "1976570.00",
       "importe_orden_mostrado_ars": "1980690.00",
-      "fuente": "captura orden Bull Market - operada completamente"
+      "fuente": "captura orden Bull Market - operada completamente",
+      "compras_confirmadas": [
+        {
+          "fecha": "2026-10-19",
+          "cantidad": 103,
+          "precio_unitario_ars": 19190,
+          "importe_bruto_ars": 1976570
+        },
+        {
+          "fecha": "2026-10-20",
+          "hora_argentina": "14:25",
+          "cantidad": 247,
+          "precio_unitario_ars": 20590,
+          "importe_bruto_ars": 5085730,
+          "importe_orden_ars": 5090670,
+          "fuente": "Captura Bull Market orden operada 100%"
+        }
+      ],
+      "fecha_ultima_compra_confirmada": "2026-10-20"
     },
     {
       "ticker": "CRM",
-      "cantidad": 101,
-      "ppc": "21570.00",
+      "cantidad": 323,
+      "ppc": "21851.80",
       "ppc_provisional": false,
       "fecha_compra_confirmada": "2026-10-19",
       "hora_compra_argentina": "11:18",
       "estado": "ABIERTA",
       "importe_bruto_compra_ars": "2178570.00",
       "importe_orden_mostrado_ars": "2178570.00",
-      "fuente": "captura orden Bull Market - operada completamente"
+      "fuente": "captura orden Bull Market - operada completamente",
+      "compras_confirmadas": [
+        {
+          "fecha": "2026-10-19",
+          "cantidad": 101,
+          "precio_unitario_ars": 21570,
+          "importe_bruto_ars": 2178570
+        },
+        {
+          "fecha": "2026-10-20",
+          "hora_argentina": "14:24",
+          "cantidad": 222,
+          "precio_unitario_ars": 21980,
+          "importe_bruto_ars": 4879560,
+          "importe_orden_ars": 4879560,
+          "fuente": "Captura Bull Market orden operada 100%"
+        }
+      ],
+      "fecha_ultima_compra_confirmada": "2026-10-20"
     }
   ],
   "momentum_cerradas": [
@@ -98,19 +152,18 @@
       "ppc": "N/D"
     }
   ],
-  "fecha_ultimo_estado_confirmado": "2026-10-19",
+  "fecha_ultimo_estado_confirmado": "2026-10-20",
   "operaciones_propuestas_no_ejecutadas": [],
   "fondos_pendientes": {
     "prestamo_usd": {
       "importe": 10000,
       "tasa_interes_anual": 0,
-      "estado": "RECIBIDO_EN_USD_PENDIENTE_CAMBIO_Y_DEPOSITO",
+      "estado": "USUARIO_CONFIRMA_FONDOS_INCORPORADOS_A_CARTERA; IMPORTE_DE_CONVERSION_Y_DEPOSITO_ARS_NO_INFORMADO",
       "moneda_deuda": "USD",
       "fecha_recepcion_confirmada": "2026-10-18",
       "conversion_ars": "N/D",
-      "efectivo_acreditado_bull_market_ars": 0,
       "fecha_deposito_prevista": "2026-10-20",
-      "aclaracion": "Recibidos USD físicamente/por usuario, aún no confirmada conversión ni acreditación en Bull Market. No contar como efectivo operativo."
+      "aclaracion": "El 20/10 usuario confirma que incorporó fondos e hizo compras por ARS 14.944.940 bruto; no asumir que ese importe corresponde exactamente a la conversión del préstamo, ya que pudo haber saldo previo. Mantener obligación de USD 10000 y monto neto de depósito N/D."
     },
     "transferencias_META_GOOGL": "ACREDITADAS_EN_BULL_MARKET_NO_VENDIDAS"
   },
