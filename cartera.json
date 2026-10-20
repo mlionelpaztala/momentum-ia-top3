@@ -158,12 +158,15 @@
     "prestamo_usd": {
       "importe": 10000,
       "tasa_interes_anual": 0,
-      "estado": "USUARIO_CONFIRMA_FONDOS_INCORPORADOS_A_CARTERA; IMPORTE_DE_CONVERSION_Y_DEPOSITO_ARS_NO_INFORMADO",
+      "estado": "RECIBIDO_CONVERTIDO_Y_ACREDITADO_EN_BULL_MARKET",
       "moneda_deuda": "USD",
       "fecha_recepcion_confirmada": "2026-10-18",
       "conversion_ars": "N/D",
       "fecha_deposito_prevista": "2026-10-20",
-      "aclaracion": "El 20/10 usuario confirma que incorporó fondos e hizo compras por ARS 14.944.940 bruto; no asumir que ese importe corresponde exactamente a la conversión del préstamo, ya que pudo haber saldo previo. Mantener obligación de USD 10000 y monto neto de depósito N/D."
+      "aclaracion": "Usuario confirmó ARS 15.000.000 ingresados a Bull Market correspondientes al préstamo familiar USD 10.000 sin intereses. Compras adicionales 20/10: PLTR ARS 4.979.650, CRM ARS 4.879.560, MRNA ARS 5.085.730; total bruto ARS 14.944.940. Diferencia bruta ARS 55.060 antes de comisiones y otros movimientos. No inferir saldo disponible efectivo ni monto neto final sin extracto.",
+      "importe_ars_acreditado": 15000000,
+      "fecha_acreditacion_confirmada": "2026-10-20",
+      "equivalencia_implicita_ars_por_usd": 1500
     },
     "transferencias_META_GOOGL": "ACREDITADAS_EN_BULL_MARKET_NO_VENDIDAS"
   },
