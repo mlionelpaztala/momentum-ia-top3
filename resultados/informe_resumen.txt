@@ -1,6 +1,6 @@
-MOMENTUM IA Top 3 | cierre NY 2026-10-20 | generado 2026-10-20 16:49:43 EDT
+MOMENTUM IA Top 3 | cierre NY 2026-10-20 | generado 2026-10-20 17:35:06 EDT
 Fórmula: 100% retorno de EXACTAMENTE 63 intervalos bursátiles estadounidenses; 2026-07-22 a 2026-10-20.
-Universo estadounidense seguido: 77 símbolos; válidos: 76; excluidos/N/D: 1.
+Universo estadounidense seguido: 83 símbolos; válidos: 82; excluidos/N/D: 1.
 RANKING PRINCIPAL: acciones de EE.UU. sin excluir por falta de CEDEAR. Comprabilidad local se revisa APARTE.
 TOP 10 ESTADOUNIDENSE (sin filtrar disponibilidad de CEDEAR):
  puesto ticker  score_63_pct  sobre_sma50  cedear_previamente_informado
