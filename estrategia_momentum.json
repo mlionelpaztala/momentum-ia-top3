@@ -1,12 +1,27 @@
 {
-  "version": "2026-10-16-podio",
+  "version": "2026-10-20-ia-bio-cuantica",
   "estado": "VIGENTE_POR_DECISION_USUARIO",
   "ranking": {
-    "universo": "IA_ECOSISTEMA_USA",
+    "universo": "IA_ECOSISTEMA_BIOTECNOLOGIA_CUANTICA_USA",
     "retorno_ruedas": 63,
     "top": 3,
     "equiponderado": true,
-    "filtro_entrada": "SMA50"
+    "filtro_entrada": "SMA50",
+    "universo_objetivo_simbolos": 83,
+    "sectores": {
+      "ia_ecosistema": 57,
+      "biotecnologia": 20,
+      "computacion_cuantica": 6
+    },
+    "cuantica_tickers": [
+      "IONQ",
+      "QBTS",
+      "RGTI",
+      "QUBT",
+      "QNT",
+      "INFQ"
+    ],
+    "aclaracion": "Ranking de acciones USA independiente de disponibilidad de CEDEARs; IBKR requiere operabilidad real y Argentina CEDEAR verificable. Tickers sin 64 cierres quedan N/D, sin historial inventado."
   },
   "revision": {
     "cada_ruedas": 5
