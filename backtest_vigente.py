@@ -1,7 +1,7 @@
 """Backtest de estrategia VIGENTE, USD, sin stops ni caución.
 Uso: python backtest_vigente.py --years 5
      python backtest_vigente.py --years 10
-La simulación utiliza cierres ajustados, ejecución al cierre de señal (optimista),
+La simulación utiliza cierres ajustados, ejecución al cierre siguiente (aproximada),
 universo actual fijo (sesgo retrospectivo) y precio fraccionario.
 """
 import argparse, json
@@ -67,7 +67,7 @@ def backtest(prices, start, fee=0.00121):
                         cost=budget
                         shares[t]=cost*(1-fee)/prices.at[d,t]
                         cash-=cost
-                        orders.append({"date":str(d.date()),"action":"BUY","ticker":t,"gross_usd":round(cost,2)})
+                        orders.append({"date":str(d.date()),"action":"BUY","ticker":t,"price_usd":float(prices.at[d,t]),"shares":float(shares[t]),"gross_usd":float(cost*(1-fee)),"fee_usd":float(cost*fee),"reason":"INITIAL"})
             elif selection["type"]=="rebalance" and shares:
                 replacements=selection["replacements"]
                 for old,new in replacements:
@@ -75,11 +75,11 @@ def backtest(prices, start, fee=0.00121):
                     if pd.isna(prices.at[d,old]) or pd.isna(prices.at[d,new]):continue
                     gross=shares.pop(old)*prices.at[d,old]
                     cash+=gross*(1-fee)
-                    orders.append({"date":str(d.date()),"action":"SELL","ticker":old,"gross_usd":round(gross,2)})
+                    orders.append({"date":str(d.date()),"action":"SELL","ticker":old,"price_usd":float(prices.at[d,old]),"shares":float(gross/prices.at[d,old]),"gross_usd":float(gross),"fee_usd":float(gross*fee),"reason":"PODIUM_ROTATION"})
                     outside.pop(old,None)
                     outside[new]=0
                     shares[new]=0.
-                    orders.append({"date":str(d.date()),"action":"BUY","ticker":new,"gross_usd":0})
+                    # La compra se documenta con el importe realmente ejecutado en el rebalanceo.
                 # Equiponderación con comisiones, conservando caja residual.
                 if len(shares)==3 and all(pd.notna(prices.at[d,t]) and prices.at[d,t]>0 for t in shares):
                     wealth=cash+sum(shares[t]*prices.at[d,t] for t in shares)
@@ -88,8 +88,10 @@ def backtest(prices, start, fee=0.00121):
                         current=shares[t]*prices.at[d,t]
                         if current>target:
                             delta=current-target
-                            shares[t]-=delta/prices.at[d,t]
+                            n=delta/prices.at[d,t]
+                            shares[t]-=n
                             cash+=delta*(1-fee)
+                            orders.append({"date":str(d.date()),"action":"SELL","ticker":t,"price_usd":float(prices.at[d,t]),"shares":float(n),"gross_usd":float(delta),"fee_usd":float(delta*fee),"reason":"REBALANCE"})
                     for t in shares:
                         needed=max(0,target-shares[t]*prices.at[d,t])
                         if needed>0:
@@ -131,6 +133,8 @@ def backtest(prices, start, fee=0.00121):
                 if old not in used_old and new not in used_new:
                     replacements.append((old,new));used_old.add(old);used_new.add(new)
             pending={"type":"rebalance","replacements":replacements}
+    if any(row["gross_usd"]<=0 or row["shares"]<=0 for row in orders):
+        raise RuntimeError("Operación nula o inválida en auditoría")
     curve=pd.DataFrame(equity)
     if incomplete: raise RuntimeError("Faltan cotizaciones de posiciones mantenidas: "+str(incomplete[:3]))
     if len(shares)!=3: raise RuntimeError("No se completaron tres posiciones")
@@ -143,7 +147,7 @@ def backtest(prices, start, fee=0.00121):
                 "cagr_pct":round(float(((1+gain)**(1/years)-1)*100),2),
                 "max_drawdown_pct":round(float((x/np.maximum.accumulate(x)-1).min()*100),2)}
     result={"momentum":metrics(curve.equity_usd),"start":str(days[0].date()),"end":str(days[-1].date()),
-            "transactions":len(orders),"signal_timing":"cierre t, ejecución cierre t+1"}
+            "transactions":len(orders),"audit_gross_buy_usd":round(sum(o["gross_usd"] for o in orders if o["action"]=="BUY"),2),"audit_fees_usd":round(sum(o["fee_usd"] for o in orders),2),"signal_timing":"cierre t, ejecución cierre t+1"}
     for t in ("SPY","QQQ"):
         z=prices.loc[days,t].to_numpy(dtype=float)
         result[t]=metrics(z)
