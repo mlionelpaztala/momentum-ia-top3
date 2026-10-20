@@ -9,9 +9,9 @@ import yfinance as yf
 from cartera import lineas_cartera
 import json
 
-# Universo de INVESTIGACIÓN ESTADOUNIDENSE: 42 símbolos V5 + 15 candidatos IA/infraestructura + 20 biotecnológicas.
+# Universo de INVESTIGACIÓN ESTADOUNIDENSE: 57 IA/infraestructura + 20 biotecnología + 6 computación cuántica.
 # Esto NO demuestra que sea el universo completo históricamente elegible; revisar periódicamente.
-UNIVERSE = ['ANET','DELL','CEG','MU','AVGO','CLS','VST','KLAC','NVDA','AMD','TSM','META','GOOGL','MSFT','AMZN','PLTR','MRVL','AMAT','LRCX','CRWD','PANW','SNOW','ORCL','CRM','NOW','COIN','SMCI','FSLR','ENPH','ETN','GE','XOM','V','IBM','INTC','WDC','PATH','GEV','SNDK','TLN','ALAB','CRWV','ARM','APP','VRT','COHR','LITE','PWR','STX','HPE','NBIS','IREN','OKLO','QCOM','CRDO','APLD','BE','VRTX','REGN','MRNA','BNTX','CRSP','NTLA','BEAM','EDIT','ALNY','IONS','SRPT','NBIX','INCY','AMGN','GILD','BIIB','RXRX','EXAS','TMDX','VKTX']
+UNIVERSE = ['ANET','DELL','CEG','MU','AVGO','CLS','VST','KLAC','NVDA','AMD','TSM','META','GOOGL','MSFT','AMZN','PLTR','MRVL','AMAT','LRCX','CRWD','PANW','SNOW','ORCL','CRM','NOW','COIN','SMCI','FSLR','ENPH','ETN','GE','XOM','V','IBM','INTC','WDC','PATH','GEV','SNDK','TLN','ALAB','CRWV','ARM','APP','VRT','COHR','LITE','PWR','STX','HPE','NBIS','IREN','OKLO','QCOM','CRDO','APLD','BE','VRTX','REGN','MRNA','BNTX','CRSP','NTLA','BEAM','EDIT','ALNY','IONS','SRPT','NBIX','INCY','AMGN','GILD','BIIB','RXRX','EXAS','TMDX','VKTX','IONQ','QBTS','RGTI','QUBT','QNT','INFQ']
 # Disponibilidad histórica informada por usuario; no son cotizaciones ni verificación actual de Bull Market.
 LOCAL_PREVIAMENTE_INFORMADOS = {'ANET','DELL','CEG','MU','AVGO','CLS','VST','KLAC','GEV','SNDK','TLN','SKHY'}
 
