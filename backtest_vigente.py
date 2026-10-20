@@ -96,8 +96,13 @@ def backtest(prices, start, fee=0.00121):
                         needed=max(0,target-shares[t]*prices.at[d,t])
                         if needed>0:
                             spend=min(cash,needed/(1-fee))
-                            shares[t]+=spend*(1-fee)/prices.at[d,t]
+                            quantity=spend*(1-fee)/prices.at[d,t]
+                            shares[t]+=quantity
                             cash-=spend
+                            orders.append({"date":str(d.date()),"action":"BUY","ticker":t,
+                                "price_usd":float(prices.at[d,t]),"shares":float(quantity),
+                                "gross_usd":float(spend*(1-fee)),
+                                "fee_usd":float(spend*fee),"reason":"REBALANCE"})
         missing=[t for t in shares if pd.isna(prices.at[d,t])]
         if missing:
             incomplete.append((str(d.date()),missing))
