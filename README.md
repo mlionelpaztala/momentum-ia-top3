@@ -4,8 +4,11 @@ El ranking teórico y el registro de cartera son independientes. Tener o vender 
 
 - `cartera.json`: fuente del registro de Bull Market confirmado por el usuario; cantidades de CEDEARs e importes unitarios en ARS. CEG tiene PPC provisional. META y GOOGL siguen acreditadas fuera de la cartera Momentum; no están vendidas. No se infieren fechas, comisiones ni PPC faltantes.
 - `cartera.py`: muestra el registro sin Internet: `python cartera.py`. Para guardarlo: `python cartera.py --out resultados/cartera_confirmada.txt`.
-- `ranking.py`: calcula el ranking y agrega al informe una sección separada con ese registro. Conserva las 57 empresas, retorno de 63 ruedas, SMA50 y siete cierres. Las tenencias no determinan el Top 3 calculado. El indicador histórico de CEDEAR previamente informado tampoco equivale a tenencia actual.
+- `ranking.py`: calcula el ranking y agrega al informe una sección separada con ese registro. Utiliza 83 símbolos (57 IA, 20 biotecnología y 6 computación cuántica), retorno de 63 ruedas, SMA50 y siete cierres. Las tenencias no determinan el Top 3 calculado. El indicador histórico de CEDEAR previamente informado tampoco equivale a tenencia actual.
 
 Validación sin cotizaciones reales: con pandas y numpy disponibles, ejecutar `python -m unittest -v`. El proveedor de precios se sustituye por datos sintéticos; no requiere yfinance instalado ni conexión a Yahoo. Comprueba cantidades y precios, PPC provisional, fórmula, SMA50, siete scores e independencia del ranking frente a cambios en la cartera.
 
 `resultados/informe_resumen.txt` conserva la sección bursátil previamente guardada y actualiza solamente el registro de cartera; no se recalcularon ni verificaron sus cotizaciones. Los CSV existentes conservan su fecha original. Una ejecución normal requiere las dependencias de `requirements.txt` e Internet. GitHub Actions no se modifica.
+
+## Universo ampliado (20/10/2026)
+Se agregan IONQ, QBTS, RGTI, QUBT, QNT y INFQ para el ranking teórico de acciones de EE. UU. QNT comenzó a cotizar en junio de 2026; INFQ en febrero de 2026. No se recrean precios previos a sus respectivas cotizaciones ni se supone la existencia de CEDEARs. El backtest de 5/10 años anterior fue realizado sobre 77 valores: **no es extrapolable** automáticamente al universo de 83. La futura migración de IBKR a Momentum es un plan para 2027, no una operación ejecutada; la cartera existente permanece intacta.
