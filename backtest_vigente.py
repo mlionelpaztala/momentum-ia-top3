@@ -86,7 +86,7 @@ def backtest(prices, start, fee=0.00121):
                     target=wealth/3
                     for t in shares:
                         current=shares[t]*prices.at[d,t]
-                        if current>target:
+                        if current>target+1e-8:
                             delta=current-target
                             n=delta/prices.at[d,t]
                             shares[t]-=n
@@ -94,8 +94,9 @@ def backtest(prices, start, fee=0.00121):
                             orders.append({"date":str(d.date()),"action":"SELL","ticker":t,"price_usd":float(prices.at[d,t]),"shares":float(n),"gross_usd":float(delta),"fee_usd":float(delta*fee),"reason":"REBALANCE"})
                     for t in shares:
                         needed=max(0,target-shares[t]*prices.at[d,t])
-                        if needed>0:
+                        if needed>1e-8 and cash>1e-8:
                             spend=min(cash,needed/(1-fee))
+                            if spend<=1e-8: continue
                             quantity=spend*(1-fee)/prices.at[d,t]
                             shares[t]+=quantity
                             cash-=spend
@@ -138,7 +139,7 @@ def backtest(prices, start, fee=0.00121):
                 if old not in used_old and new not in used_new:
                     replacements.append((old,new));used_old.add(old);used_new.add(new)
             pending={"type":"rebalance","replacements":replacements}
-    if any(row["gross_usd"]<=0 or row["shares"]<=0 for row in orders):
+    if any(row["gross_usd"]<=1e-8 or row["shares"]<=1e-12 for row in orders):
         raise RuntimeError("Operación nula o inválida en auditoría")
     curve=pd.DataFrame(equity)
     if incomplete: raise RuntimeError("Faltan cotizaciones de posiciones mantenidas: "+str(incomplete[:3]))
