@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-20-ia-bio-cuantica",
+  "version": "2026-10-21-aportes-nuevos-top3",
   "estado": "VIGENTE_POR_DECISION_USUARIO",
   "ranking": {
     "universo": "IA_ECOSISTEMA_BIOTECNOLOGIA_CUANTICA_USA",
@@ -38,5 +38,13 @@
   },
   "reingreso": "Solo conforme reglas de seleccion y revision; sin reentrada automatica por precio",
   "caucion_momentum": false,
-  "ejecucion_ordenes_automatica": false
+  "ejecucion_ordenes_automatica": false,
+  "aportes_nuevos": {
+    "regla": "Capital nuevo se asigna a los líderes Top3 vigentes elegibles, buscando equiponderación; no activa ventas anticipadas de posiciones existentes",
+    "filtro_entrada": "SMA50",
+    "operabilidad": "Verificar CEDEAR disponible, ratio, liquidez, puntas bid/ask y costos antes de proponer compras",
+    "posiciones_fuera_podio": "Mantener hasta cumplir íntegramente regla de salida de 7 cierres y revisión cada 5 ruedas; se permiten temporalmente más de tres posiciones",
+    "efectivo": "Si un líder no es operable, no sustituirlo automáticamente por un activo fuera del Top3; mantener efectivo pendiente de decisión",
+    "ordenes_automaticas": false
+  }
 }
