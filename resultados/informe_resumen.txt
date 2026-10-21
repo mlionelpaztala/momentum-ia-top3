@@ -1,26 +1,26 @@
-MOMENTUM IA Top 3 | cierre NY 2026-10-20 | generado 2026-10-20 17:35:06 EDT
-Fórmula: 100% retorno de EXACTAMENTE 63 intervalos bursátiles estadounidenses; 2026-07-22 a 2026-10-20.
+MOMENTUM IA Top 3 | cierre NY 2026-10-21 | generado 2026-10-21 16:49:26 EDT
+Fórmula: 100% retorno de EXACTAMENTE 63 intervalos bursátiles estadounidenses; 2026-07-23 a 2026-10-21.
 Universo estadounidense seguido: 83 símbolos; válidos: 82; excluidos/N/D: 1.
 RANKING PRINCIPAL: acciones de EE.UU. sin excluir por falta de CEDEAR. Comprabilidad local se revisa APARTE.
 TOP 10 ESTADOUNIDENSE (sin filtrar disponibilidad de CEDEAR):
  puesto ticker  score_63_pct  sobre_sma50  cedear_previamente_informado
-      1   MRNA      316.8762         True                         False
-      2    NOW       56.6520         True                         False
-      3   PLTR       54.6119         True                         False
-      4    CRM       48.9917         True                         False
-      5   MSFT       36.5146         True                         False
-      6   PATH       25.5140        False                         False
-      7   REGN       24.1474         True                         False
-      8   BIIB       22.9392         True                         False
-      9   RXRX       22.8188         True                         False
-     10   SRPT       21.1757        False                         False
+      1   MRNA      331.0943         True                         False
+      2    NOW       66.5434         True                         False
+      3   PLTR       63.5081         True                         False
+      4    CRM       54.3398         True                         False
+      5   MSFT       39.9322         True                         False
+      6   PATH       34.4118        False                         False
+      7   CRWD       30.4874         True                         False
+      8   REGN       23.7304         True                         False
+      9    IBM       22.5569         True                         False
+     10    HPE       22.4121        False                         False
 
 REGISTRO DE CARTERA (independiente del ranking):
 Bull Market — Tenencias y ventas confirmadas por el usuario. Importes en ARS por CEDEAR.
 MOMENTUM IA — POSICIONES ABIERTAS (no es el ranking calculado):
-  PLTR: 18 CEDEARs; PPC $105.750,00.
-  MRNA: 103 CEDEARs; PPC $19.190,00.
-  CRM: 101 CEDEARs; PPC $21.570,00.
+  PLTR: 65 CEDEARs; PPC $105.894,62.
+  MRNA: 350 CEDEARs; PPC $20.178,00.
+  CRM: 323 CEDEARs; PPC $21.851,80.
 MOMENTUM IA — POSICIONES CERRADAS:
   ANET: 200 CEDEARs vendidos a $9.985,00.
   DELL: 187 CEDEARs vendidos a $9.935,00.
@@ -37,5 +37,5 @@ Criterio de 7 cierres: valores históricos de score están en el CSV para evalua
 
 BENCHMARKS:
 benchmark  retorno_63_pct
-      SPY          3.1508
-      QQQ          1.8470
+      SPY          4.9893
+      QQQ          4.9130
