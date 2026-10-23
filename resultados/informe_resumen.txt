@@ -1,19 +1,19 @@
-MOMENTUM IA Top 3 | cierre NY 2026-10-22 | generado 2026-10-22 16:47:14 EDT
-Fórmula: 100% retorno de EXACTAMENTE 63 intervalos bursátiles estadounidenses; 2026-07-24 a 2026-10-22.
+MOMENTUM IA Top 3 | cierre NY 2026-10-23 | generado 2026-10-23 16:49:01 EDT
+Fórmula: 100% retorno de EXACTAMENTE 63 intervalos bursátiles estadounidenses; 2026-07-27 a 2026-10-23.
 Universo estadounidense seguido: 83 símbolos; válidos: 82; excluidos/N/D: 1.
 RANKING PRINCIPAL: acciones de EE.UU. sin excluir por falta de CEDEAR. Comprabilidad local se revisa APARTE.
 TOP 10 ESTADOUNIDENSE (sin filtrar disponibilidad de CEDEAR):
  puesto ticker  score_63_pct  sobre_sma50  cedear_previamente_informado
-      1   MRNA      274.7550         True                         False
-      2   PLTR       59.6079         True                         False
-      3    NOW       58.9391         True                         False
-      4    CRM       53.2020         True                         False
-      5   MSFT       36.7726         True                         False
-      6   CRWD       29.8232         True                         False
-      7   PATH       28.5978        False                         False
-      8   BIIB       25.5453         True                         False
-      9   REGN       25.0052         True                         False
-     10   GILD       22.2453         True                         False
+      1   MRNA      259.6980         True                         False
+      2    NOW       50.5874         True                         False
+      3   PLTR       49.5856         True                         False
+      4    CRM       43.4374         True                         False
+      5   CRWD       43.0071         True                         False
+      6   MSFT       35.0546         True                         False
+      7   BIIB       25.2573         True                         False
+      8   RXRX       22.9236         True                         False
+      9   PATH       21.6007        False                         False
+     10   MRVL       20.8225        False                         False
 
 REGISTRO DE CARTERA (independiente del ranking):
 Bull Market — Tenencias y ventas confirmadas por el usuario. Importes en ARS por CEDEAR.
@@ -37,5 +37,5 @@ Criterio de 7 cierres: valores históricos de score están en el CSV para evalua
 
 BENCHMARKS:
 benchmark  retorno_63_pct
-      SPY          3.6441
-      QQQ          3.0653
+      SPY          3.0804
+      QQQ          3.3739
