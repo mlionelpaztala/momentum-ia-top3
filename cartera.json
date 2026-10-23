@@ -35,7 +35,8 @@
         }
       ],
       "fecha_ultima_compra_confirmada": "2026-10-23",
-      "ppc_fuente": "PPC mostrado en posición Bull Market 23/10; comprobar comisiones y redondeo"
+      "ppc_fuente": "PPC mostrado en posición Bull Market 23/10; comprobar comisiones y redondeo",
+      "fuente_posicion": "Captura Bull Market 23/10/2026"
     },
     {
       "ticker": "MRNA",
@@ -73,7 +74,8 @@
         }
       ],
       "fecha_ultima_compra_confirmada": "2026-10-23",
-      "ppc_fuente": "PPC de posición Bull Market 23/10; precio unitario de compra adicional no comprobado"
+      "ppc_fuente": "PPC de posición Bull Market 23/10; precio unitario de compra adicional no comprobado",
+      "fuente_posicion": "Captura Bull Market 23/10/2026"
     },
     {
       "ticker": "CRM",
@@ -104,7 +106,8 @@
         }
       ],
       "fecha_ultima_compra_confirmada": "2026-10-20",
-      "ppc_fuente": "PPC de posición visualizado 23/10; sin nueva compra"
+      "ppc_fuente": "PPC de posición visualizado 23/10; sin nueva compra",
+      "fuente_posicion": "Captura Bull Market 23/10/2026"
     },
     {
       "ticker": "NOW",
@@ -116,14 +119,14 @@
       "compras_confirmadas": [
         {
           "fecha": "2026-10-23",
-          "cantidad": 3357,
+          "cantidad": null,
           "precio_unitario_ars": null,
           "importe_bruto_ars": null,
-          "fuente": "Usuario confirmó compra; precio ejecución pendiente"
+          "fuente": "Compra confirmada por usuario; captura de posición confirma tenencia total de 3607, no desglose por orden"
         }
       ],
-      "saldo_preexistente_antes_23_10": 250,
-      "nota": "Tenencia total observada 3607; 250 CEDEARs preexistentes no detallados en anterior cartera.json. No inventar origen ni PPC por lote."
+      "nota": "Tenencia y PPC confirmados por captura de Bull Market 23/10. Cantidad comprada en la transacción y precio exacto pendientes de comprobante de orden.",
+      "fuente_posicion": "Captura Bull Market 23/10/2026"
     }
   ],
   "momentum_cerradas": [
@@ -211,5 +214,5 @@
     },
     "transferencias_META_GOOGL": "META_VENDIDA_TOTALMENTE_23_10; GOOGL_ACREDITADA_NO_VENDIDA"
   },
-  "nota": "Estado actualizado con operaciones de 23/10: META vendida 371, MRNA compra 294 (total 644), PLTR compra 46 a 107900 (total 117), NOW compra 3357 (total 3607), CRM 323 sin nueva operación, GOOGL 1028 sin venta confirmada. Las compras de NOW/MRNA y la venta META tienen precios de ejecución pendientes de comprobante. No calcular resultado realizado META, comisiones ni inferir caja."
+  "nota": "Capturas Bull Market confirman posición total: NOW 3607 PPC 1519.57; MRNA 644 PPC 18884.03; PLTR 117 PPC 106879.85; CRM 323 PPC 21891.46. Venta META total confirmada por usuario pero sin comprobante de precio; compras del 23/10 no extrapolar lotes desde tenencias, salvo PLTR 46 unidades cuya orden había sido confirmada. Resultados se informan en USD, no confundir valores en ARS de capturas con rendimiento USD."
 }
