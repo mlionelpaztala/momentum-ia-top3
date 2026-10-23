@@ -5,8 +5,8 @@
   "momentum_abiertas": [
     {
       "ticker": "PLTR",
-      "cantidad": 65,
-      "ppc": "105894.62",
+      "cantidad": 117,
+      "ppc": "106879.85",
       "ppc_provisional": false,
       "estado": "ABIERTA",
       "fecha_compra_confirmada": "2026-10-15",
@@ -25,14 +25,22 @@
           "importe_bruto_ars": 4979650,
           "importe_orden_ars": 4979650,
           "fuente": "Captura Bull Market orden operada 100%"
+        },
+        {
+          "fecha": "2026-10-23",
+          "cantidad": 46,
+          "precio_unitario_ars": 107900,
+          "importe_bruto_ars": 4949600,
+          "fuente": "Captura Bull Market orden operada 46/46"
         }
       ],
-      "fecha_ultima_compra_confirmada": "2026-10-20"
+      "fecha_ultima_compra_confirmada": "2026-10-23",
+      "ppc_fuente": "PPC mostrado en posición Bull Market 23/10; comprobar comisiones y redondeo"
     },
     {
       "ticker": "MRNA",
-      "cantidad": 350,
-      "ppc": "20178.00",
+      "cantidad": 644,
+      "ppc": "18884.03",
       "ppc_provisional": false,
       "fecha_compra_confirmada": "2026-10-19",
       "hora_compra_argentina": "11:14",
@@ -55,14 +63,22 @@
           "importe_bruto_ars": 5085730,
           "importe_orden_ars": 5090670,
           "fuente": "Captura Bull Market orden operada 100%"
+        },
+        {
+          "fecha": "2026-10-23",
+          "cantidad": 294,
+          "precio_unitario_ars": null,
+          "importe_bruto_ars": null,
+          "fuente": "Usuario confirma compra adicional y tenencia final 644; precio exacto pendiente"
         }
       ],
-      "fecha_ultima_compra_confirmada": "2026-10-20"
+      "fecha_ultima_compra_confirmada": "2026-10-23",
+      "ppc_fuente": "PPC de posición Bull Market 23/10; precio unitario de compra adicional no comprobado"
     },
     {
       "ticker": "CRM",
       "cantidad": 323,
-      "ppc": "21851.80",
+      "ppc": "21891.46",
       "ppc_provisional": false,
       "fecha_compra_confirmada": "2026-10-19",
       "hora_compra_argentina": "11:18",
@@ -87,7 +103,27 @@
           "fuente": "Captura Bull Market orden operada 100%"
         }
       ],
-      "fecha_ultima_compra_confirmada": "2026-10-20"
+      "fecha_ultima_compra_confirmada": "2026-10-20",
+      "ppc_fuente": "PPC de posición visualizado 23/10; sin nueva compra"
+    },
+    {
+      "ticker": "NOW",
+      "cantidad": 3607,
+      "ppc": "1519.57",
+      "ppc_provisional": false,
+      "estado": "ABIERTA",
+      "fecha_ultima_compra_confirmada": "2026-10-23",
+      "compras_confirmadas": [
+        {
+          "fecha": "2026-10-23",
+          "cantidad": 3357,
+          "precio_unitario_ars": null,
+          "importe_bruto_ars": null,
+          "fuente": "Usuario confirmó compra; precio ejecución pendiente"
+        }
+      ],
+      "saldo_preexistente_antes_23_10": 250,
+      "nota": "Tenencia total observada 3607; 250 CEDEARs preexistentes no detallados en anterior cartera.json. No inventar origen ni PPC por lote."
     }
   ],
   "momentum_cerradas": [
@@ -135,12 +171,17 @@
   "otras_tenencias": [
     {
       "ticker": "META",
-      "cantidad": 371,
-      "estado": "ACREDITADA_NO_VENDIDA",
+      "cantidad": 0,
+      "estado": "VENDIDA_TOTALMENTE",
       "procedencia": "Allaria",
       "destino": "Bull Market",
-      "venta_confirmada": false,
-      "ppc": "N/D"
+      "venta_confirmada": true,
+      "ppc": "N/D",
+      "fecha_venta_confirmada": "2026-10-23",
+      "cantidad_vendida": 371,
+      "precio_venta_ars": null,
+      "importe_bruto_venta_ars": null,
+      "nota": "Venta completa confirmada; precio y costos aún sin comprobante accesible"
     },
     {
       "ticker": "GOOGL",
@@ -152,7 +193,7 @@
       "ppc": "N/D"
     }
   ],
-  "fecha_ultimo_estado_confirmado": "2026-10-20",
+  "fecha_ultimo_estado_confirmado": "2026-10-23",
   "operaciones_propuestas_no_ejecutadas": [],
   "fondos_pendientes": {
     "prestamo_usd": {
@@ -168,7 +209,7 @@
       "fecha_acreditacion_confirmada": "2026-10-20",
       "equivalencia_implicita_ars_por_usd": 1500
     },
-    "transferencias_META_GOOGL": "ACREDITADAS_EN_BULL_MARKET_NO_VENDIDAS"
+    "transferencias_META_GOOGL": "META_VENDIDA_TOTALMENTE_23_10; GOOGL_ACREDITADA_NO_VENDIDA"
   },
-  "nota": "Órdenes MRVL y CEG vendidas, MRNA y CRM compradas el 19/10/2026, todas operadas completamente según capturas. PLTR continúa abierta; META y GOOGL sin vender. En MRNA importe de orden 1.980.690 vs importe operado bruto 1.976.570; diferencia 4.120 no clasificada sin detalle de gastos. No computar comisiones netas sin comprobante."
+  "nota": "Estado actualizado con operaciones de 23/10: META vendida 371, MRNA compra 294 (total 644), PLTR compra 46 a 107900 (total 117), NOW compra 3357 (total 3607), CRM 323 sin nueva operación, GOOGL 1028 sin venta confirmada. Las compras de NOW/MRNA y la venta META tienen precios de ejecución pendientes de comprobante. No calcular resultado realizado META, comisiones ni inferir caja."
 }
