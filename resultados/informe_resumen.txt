@@ -27,10 +27,11 @@ MOMENTUM IA — POSICIONES CERRADAS:
   DELL: 187 CEDEARs vendidos a $9.935,00.
   MRVL: 73 CEDEARs vendidos a $27.460,00.
   CEG: 224 CEDEARs vendidos a $9.545,00.
-OTRAS TENENCIAS ACREDITADAS — abiertas, fuera de la cartera Top 3:
-  META: 0 CEDEARs; no vendidos; PPC no informado.
-  GOOGL: 1028 CEDEARs; no vendidos; PPC no informado.
-Sin fechas de operación ni comisiones informadas. Este registro no ejecuta órdenes ni modifica el ranking.
+OTRAS TENENCIAS / MOVIMIENTOS fuera de la cartera Top 3:
+  META: 371 CEDEARs VENDIDOS TOTALMENTE el 23/10/2026; saldo 0. Fondos reinvertidos en compras de NOW, PLTR y MRNA del 23/10, confirmado por usuario; precio/neto de venta y desglose monetario aun no verificados.
+  GOOGL: 1028 CEDEARs acreditados, NO vendidos; PPC no informado.
+  PRESTAMO FAMILIAR: USD 10.000, 0% interes, convertido y acreditado en Bull Market como ARS 15.000.000 el 20/10/2026; compras de esa fecha de PLTR, CRM y MRNA se distinguen de la reinversion de META del 23/10.
+No inferir comisiones, montos netos de META ni asignaciones exactas sin comprobantes. Este registro no ejecuta ordenes ni modifica el ranking.
 
 ESTRATEGIA VIGENTE: SOLO_PERDIDA_PODIO_PERSISTENTE; SIN STOP DE PRECIO; revisión cada 5 ruedas; fuera del Top3 7 cierres y ventaja >=5 pp durante 7 cierres antes de rotar. No colocar órdenes automáticamente.
 ROTACIÓN: no es automáticamente ejecutable. Exige confirmar además filtro SMA50 del sustituto, costos y puntas locales; la simple caída del precio NO determina salida.
