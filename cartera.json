@@ -31,7 +31,8 @@
           "cantidad": 46,
           "precio_unitario_ars": 107900,
           "importe_bruto_ars": 4949600,
-          "fuente": "Captura Bull Market orden operada 46/46"
+          "fuente": "Captura Bull Market orden operada 46/46",
+          "origen_fondos": "Reinversion de la venta total de 371 CEDEARs META realizada el 2026-10-23 (confirmada por el usuario); desglose monetario exacto no verificado"
         }
       ],
       "fecha_ultima_compra_confirmada": "2026-10-23",
@@ -70,7 +71,8 @@
           "cantidad": 294,
           "precio_unitario_ars": null,
           "importe_bruto_ars": null,
-          "fuente": "Usuario confirma compra adicional y tenencia final 644; precio exacto pendiente"
+          "fuente": "Usuario confirma compra adicional y tenencia final 644; precio exacto pendiente",
+          "origen_fondos": "Reinversion de la venta total de 371 CEDEARs META realizada el 2026-10-23 (confirmada por el usuario); desglose monetario exacto no verificado"
         }
       ],
       "fecha_ultima_compra_confirmada": "2026-10-23",
@@ -122,7 +124,8 @@
           "cantidad": null,
           "precio_unitario_ars": null,
           "importe_bruto_ars": null,
-          "fuente": "Compra confirmada por usuario; captura de posición confirma tenencia total de 3607, no desglose por orden"
+          "fuente": "Compra confirmada por usuario; captura de posición confirma tenencia total de 3607, no desglose por orden",
+          "origen_fondos": "Reinversion de la venta total de 371 CEDEARs META realizada el 2026-10-23 (confirmada por el usuario); desglose monetario exacto no verificado"
         }
       ],
       "nota": "Tenencia y PPC confirmados por captura de Bull Market 23/10. Cantidad comprada en la transacción y precio exacto pendientes de comprobante de orden.",
@@ -184,7 +187,8 @@
       "cantidad_vendida": 371,
       "precio_venta_ars": null,
       "importe_bruto_venta_ars": null,
-      "nota": "Venta completa confirmada; precio y costos aún sin comprobante accesible"
+      "nota": "Venta total de 371 CEDEARs confirmada el 2026-10-23. El usuario confirma que los fondos se destinaron a compras de NOW, PLTR y MRNA. Precio de venta, neto y conciliacion exacta de fondos aun sin comprobante.",
+      "destino_fondos": "Reinvertidos en compras de NOW, PLTR y MRNA el 2026-10-23; importes individuales imputables a la venta pendientes de comprobacion"
     },
     {
       "ticker": "GOOGL",
@@ -212,7 +216,7 @@
       "fecha_acreditacion_confirmada": "2026-10-20",
       "equivalencia_implicita_ars_por_usd": 1500
     },
-    "transferencias_META_GOOGL": "META_VENDIDA_TOTALMENTE_23_10; GOOGL_ACREDITADA_NO_VENDIDA"
+    "transferencias_META_GOOGL": "META_VENDIDA_TOTALMENTE_23_10_Y_REINVERTIDA_EN_NOW_PLTR_MRNA; GOOGL_ACREDITADA_NO_VENDIDA"
   },
-  "nota": "Capturas Bull Market confirman posición total: NOW 3607 PPC 1519.57; MRNA 644 PPC 18884.03; PLTR 117 PPC 106879.85; CRM 323 PPC 21891.46. Venta META total confirmada por usuario pero sin comprobante de precio; compras del 23/10 no extrapolar lotes desde tenencias, salvo PLTR 46 unidades cuya orden había sido confirmada. Resultados se informan en USD, no confundir valores en ARS de capturas con rendimiento USD."
+  "nota": "Capturas Bull Market confirman posición total: NOW 3607 PPC 1519.57; MRNA 644 PPC 18884.03; PLTR 117 PPC 106879.85; CRM 323 PPC 21891.46. Venta META total confirmada por usuario pero sin comprobante de precio; compras del 23/10 no extrapolar lotes desde tenencias, salvo PLTR 46 unidades cuya orden había sido confirmada. Resultados se informan en USD, no confundir valores en ARS de capturas con rendimiento USD. Correccion del usuario 26/10: proceeds de META vendida el 23/10 reinvertidos en NOW, PLTR y MRNA; no confundir con compras del 20/10 financiadas con prestamo familiar USD 10000 ni atribuir CRM a esta venta. No inventar monto neto de META ni desglose exacto."
 }
