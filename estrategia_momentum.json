@@ -46,5 +46,12 @@
     "posiciones_fuera_podio": "Mantener hasta cumplir íntegramente regla de salida de 7 cierres y revisión cada 5 ruedas; se permiten temporalmente más de tres posiciones",
     "efectivo": "Si un líder no es operable, no sustituirlo automáticamente por un activo fuera del Top3; mantener efectivo pendiente de decisión",
     "ordenes_automaticas": false
+  },
+  "rebalanceo": {
+    "momento": "UNICAMENTE_AL_EJECUTAR_ROTACION_VALIDA",
+    "objetivo": "Tres posiciones al 33.3333% cada una cuando existan exactamente tres, descontando comisiones",
+    "sin_rotacion": "NO_REBALANCEAR",
+    "aportes_nuevos": "Asignar a lideres Top3 elegibles segun condiciones vigentes, sin vender posiciones antiguas por el solo aporte",
+    "nota": "Esta seccion documenta el comportamiento ya presente en backtest_vigente.py. Pendiente homologacion por prueba de paridad entre version historica y motor compartido."
   }
 }
