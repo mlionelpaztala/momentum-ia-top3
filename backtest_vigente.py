@@ -10,6 +10,7 @@ import numpy as np
 import pandas as pd
 import yfinance as yf
 from ranking import UNIVERSE
+from motor_rotacion import decision
 
 def download(start, end):
     names = UNIVERSE + ["SPY", "QQQ"]
@@ -68,7 +69,7 @@ def backtest(prices, start, fee=0.00121):
                         shares[t]=cost*(1-fee)/prices.at[d,t]
                         cash-=cost
                         orders.append({"date":str(d.date()),"action":"BUY","ticker":t,"price_usd":float(prices.at[d,t]),"shares":float(shares[t]),"gross_usd":float(cost*(1-fee)),"fee_usd":float(cost*fee),"reason":"INITIAL"})
-            elif selection["type"]=="rebalance" and shares:
+            elif selection["type"]=="rebalance" and shares and selection["replacements"]:
                 replacements=selection["replacements"]
                 for old,new in replacements:
                     if old not in shares or new in shares:continue
@@ -131,14 +132,19 @@ def backtest(prices, start, fee=0.00121):
                 streak[key]=streak.get(key,0)+1 if good else 0
         streak={k:v for k,v in streak.items() if k in active}
         if i>0 and i%5==0 and i<len(days)-1:
-            candidates=sorted([(scores.at[d,new],old,new) for (old,new),n in streak.items()
-                               if n>=7 and outside.get(old,0)>=7 and bool(eligible.at[d,new])],
-                              key=lambda x:-x[0])
-            used_old=set();used_new=set();replacements=[]
-            for _,old,new in candidates:
-                if old not in used_old and new not in used_new:
-                    replacements.append((old,new));used_old.add(old);used_new.add(new)
-            pending={"type":"rebalance","replacements":replacements}
+            seven_dates=prices.index[prices.index<=d][-7:]
+            if len(seven_dates)<7:
+                raise RuntimeError("Sin siete cierres para auditar rotación")
+            hist=[{t:float(scores.at[day,t]) for t in universe
+                   if pd.notna(scores.at[day,t])} for day in seven_dates]
+            candidates={t for t in universe if bool(eligible.at[d,t])}
+            signal=decision(hist,list(shares),candidates,True)
+            if signal["status"]=="BLOCKED":
+                raise RuntimeError("Motor de rotación bloqueado: "+str(signal))
+            replacements=[(x["sell"],x["buy"]) for x in signal["rotations"]]
+            if replacements:
+                pending={"type":"rebalance","replacements":replacements}
+
     if any(row["gross_usd"]<=1e-8 or row["shares"]<=1e-12 for row in orders):
         raise RuntimeError("Operación nula o inválida en auditoría")
     curve=pd.DataFrame(equity)
@@ -153,7 +159,7 @@ def backtest(prices, start, fee=0.00121):
                 "cagr_pct":round(float(((1+gain)**(1/years)-1)*100),2),
                 "max_drawdown_pct":round(float((x/np.maximum.accumulate(x)-1).min()*100),2)}
     result={"momentum":metrics(curve.equity_usd),"start":str(days[0].date()),"end":str(days[-1].date()),
-            "transactions":len(orders),"audit_gross_buy_usd":round(sum(o["gross_usd"] for o in orders if o["action"]=="BUY"),2),"audit_fees_usd":round(sum(o["fee_usd"] for o in orders),2),"signal_timing":"cierre t, ejecución cierre t+1"}
+            "transactions":len(orders),"audit_gross_buy_usd":round(sum(o["gross_usd"] for o in orders if o["action"]=="BUY"),2),"audit_fees_usd":round(sum(o["fee_usd"] for o in orders),2),"signal_timing":"cierre t, ejecución cierre t+1","rotation_engine":"motor_rotacion.decision"}
     for t in ("SPY","QQQ"):
         z=prices.loc[days,t].to_numpy(dtype=float)
         result[t]=metrics(z)
