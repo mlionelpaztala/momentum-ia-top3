@@ -1,19 +1,19 @@
-MOMENTUM IA Top 3 | cierre NY 2026-10-27 | generado 2026-10-27 16:50:07 EDT
-Fórmula: 100% retorno de EXACTAMENTE 63 intervalos bursátiles estadounidenses; 2026-07-29 a 2026-10-27.
+MOMENTUM IA Top 3 | cierre NY 2026-10-28 | generado 2026-10-28 16:56:29 EDT
+Fórmula: 100% retorno de EXACTAMENTE 63 intervalos bursátiles estadounidenses; 2026-07-30 a 2026-10-28.
 Universo estadounidense seguido: 83 símbolos; válidos: 82; excluidos/N/D: 1.
 RANKING PRINCIPAL: acciones de EE.UU. sin excluir por falta de CEDEAR. Comprabilidad local se revisa APARTE.
 TOP 10 ESTADOUNIDENSE (sin filtrar disponibilidad de CEDEAR):
  puesto ticker  score_63_pct  sobre_sma50  cedear_previamente_informado
-      1   MRNA      281.6664         True                         False
-      2   PLTR       61.5691         True                         False
-      3   CRWD       49.4146         True                         False
-      4   MRVL       49.0962         True                         False
-      5   LITE       43.8001        False                         False
-      6    HPE       37.2500         True                         False
-      7   SMCI       36.5370        False                         False
-      8   RXRX       36.3636         True                         False
-      9   MSFT       36.3062         True                         False
-     10   DELL       35.9851        False                          True
+      1   MRNA      269.7600         True                         False
+      2   PLTR       60.9766         True                         False
+      3   CRWD       43.9693         True                         False
+      4   RXRX       43.0921         True                         False
+      5   MRVL       37.3186         True                         False
+      6    NOW       36.3950         True                         False
+      7    CRM       34.2128         True                         False
+      8   LITE       31.8375        False                         False
+      9   SMCI       29.1381        False                         False
+     10    HPE       28.3042         True                         False
 
 REGISTRO DE CARTERA (independiente del ranking):
 Bull Market — Tenencias y ventas confirmadas por el usuario. Importes en ARS por CEDEAR.
@@ -38,5 +38,5 @@ Criterio de 7 cierres: valores históricos de score están en el CSV para evalua
 
 BENCHMARKS:
 benchmark  retorno_63_pct
-      SPY          5.7729
-      QQQ          9.1082
+      SPY          4.3870
+      QQQ          6.2638
