@@ -64,6 +64,7 @@ def backtest(prices, start, fee=0.00121, opens=None, anchor='2026-10-21'):
     streak={}
     pending=None
     incomplete=[]
+    audit_rows=[]
     for i,d in enumerate(days):
         # Ejecutar instrucciones dictadas SOLO por el cierre previo.
         if pending is not None:
@@ -156,6 +157,19 @@ def backtest(prices, start, fee=0.00121, opens=None, anchor='2026-10-21'):
                 raise RuntimeError("Motor de rotación bloqueado: "+str(signal))
             replacements=[(x["sell"],x["buy"]) for x in signal["rotations"]]
             if replacements:
+                for old,new in replacements:
+                    proof=[]
+                    for day,record in zip(seven_dates,hist):
+                        ranked_day=sorted(record,key=lambda t:(-record[t],t))
+                        proof.append({"date":str(day.date()),"old":old,"new":new,
+                            "old_score":record.get(old),"new_score":record.get(new),
+                            "old_outside":old not in ranked_day[:3],
+                            "gap_ok":record[new]-record[old]>=5})
+                    valid=(len(proof)==7 and all(x["old_outside"] and x["gap_ok"] for x in proof)
+                           and new in ranked[:3] and bool(eligible.at[d,new]))
+                    audit_rows.append({"signal_date":str(d.date()),"execution_date":str(days[i+1].date()),
+                        "sell":old,"buy":new,"proof":proof,"validated":bool(valid)})
+                    if not valid: raise RuntimeError("ROTACION NO HOMOLOGADA: "+str((old,new,d)))
                 pending={"type":"rebalance","replacements":replacements}
 
     if any(row["gross_usd"]<=1e-8 or row["shares"]<=1e-12 for row in orders):
@@ -176,18 +190,21 @@ def backtest(prices, start, fee=0.00121, opens=None, anchor='2026-10-21'):
     for t in ("SPY","QQQ"):
         z=prices.loc[days,t].to_numpy(dtype=float)
         result[t]=metrics(z)
-    return result,curve,pd.DataFrame(orders)
+    return result,curve,pd.DataFrame(orders),pd.DataFrame(audit_rows)
 
 def main():
     p=argparse.ArgumentParser();p.add_argument("--years",type=int,choices=[5,10],required=True)
     p.add_argument("--end",default="2026-10-28");p.add_argument("--fee",type=float,default=.00121)
     a=p.parse_args();end=pd.Timestamp(a.end);start=end-pd.DateOffset(years=a.years)
     prices,opens,failures=download(start-pd.Timedelta(days=180),end)
-    result,curve,orders=backtest(prices,start,a.fee,opens=opens)
+    result,curve,orders,audit=backtest(prices,start,a.fee,opens=opens)
     directory=Path("resultados/backtest_vigente");directory.mkdir(parents=True,exist_ok=True)
     prefix=str(a.years)+"y"
     curve.to_csv(directory/("curva_"+prefix+".csv"),index=False)
     orders.to_csv(directory/("operaciones_"+prefix+".csv"),index=False)
+    audit.to_json(directory/("evidencia_rotaciones_"+prefix+".json"),orient="records",indent=2,force_ascii=False)
+    result["rotation_proofs_count"]=len(audit)
+    result["rotation_proofs_passed"]=bool(audit.empty or audit["validated"].all())
     # La simulación usa la lista ACTUAL de símbolos; no demuestra elegibilidad
     # histórica ni incorpora automáticamente excluidas, delistadas o quebradas.
     # Estos resultados NO constituyen una prueba libre de sesgo de supervivencia.
