@@ -159,8 +159,9 @@ def backtest(prices, start, fee=0.00121, opens=None, anchor='2026-10-21'):
             if replacements:
                 for old,new in replacements:
                     proof=[]
+                    common=set.intersection(*(set(row) for row in hist))
                     for day,record in zip(seven_dates,hist):
-                        ranked_day=sorted(record,key=lambda t:(-record[t],t))
+                        ranked_day=sorted(common,key=lambda t:(-record[t],t))
                         proof.append({"date":str(day.date()),"old":old,"new":new,
                             "old_score":record.get(old),"new_score":record.get(new),
                             "old_outside":old not in ranked_day[:3],
@@ -172,6 +173,10 @@ def backtest(prices, start, fee=0.00121, opens=None, anchor='2026-10-21'):
                     if not valid: raise RuntimeError("ROTACION NO HOMOLOGADA: "+str((old,new,d)))
                 pending={"type":"rebalance","replacements":replacements}
 
+    proof_keys={(x["execution_date"],x["sell"]) for x in audit_rows}
+    executed_keys={(x["date"],x["ticker"]) for x in orders if x["reason"]=="PODIUM_ROTATION"}
+    if proof_keys != executed_keys:
+        raise RuntimeError("PARIDAD FALLIDA: señales y ventas ejecutadas no coinciden "+str((proof_keys-executed_keys,executed_keys-proof_keys)))
     if any(row["gross_usd"]<=1e-8 or row["shares"]<=1e-12 for row in orders):
         raise RuntimeError("Operación nula o inválida en auditoría")
     curve=pd.DataFrame(equity)
