@@ -46,6 +46,7 @@ def backtest(prices, start, fee=0.00121, opens=None, anchor='2026-10-21'):
     """
     if opens is None: raise ValueError('Faltan precios OPEN; backtest bloqueado')
     if not prices.index.equals(opens.index): raise ValueError('OPEN/CLOSE con calendarios diferentes')
+    if pd.Timestamp(anchor) not in prices.index: raise ValueError('Se exige calendario SPY que contenga el ancla 2026-10-21; no inventar fase histórica')
     universe=[t for t in UNIVERSE if t in prices.columns]
     scores=100*(prices[universe]/prices[universe].shift(63)-1)
     sma=prices[universe].rolling(50,min_periods=50).mean()
@@ -142,11 +143,7 @@ def backtest(prices, start, fee=0.00121, opens=None, anchor='2026-10-21'):
         streak={k:v for k,v in streak.items() if k in active}
         # El calendario de revisión es fijo y compartido con auditor diario.
         anchor_ts=pd.Timestamp(anchor)
-        if anchor_ts not in prices.index:
-            # Para historia anterior, fase anclada en la posición del 21/10/2026.
-            phase=(prices.index.get_loc(d)-prices.index.get_indexer([anchor_ts],method='pad')[0])%5
-        else:
-            phase=(prices.index.get_loc(d)-prices.index.get_loc(anchor_ts))%5
+        phase=(prices.index.get_loc(d)-prices.index.get_loc(anchor_ts))%5
         if phase==0 and i<len(days)-1:
             seven_dates=prices.index[prices.index<=d][-7:]
             if len(seven_dates)<7:
@@ -183,7 +180,7 @@ def backtest(prices, start, fee=0.00121, opens=None, anchor='2026-10-21'):
 
 def main():
     p=argparse.ArgumentParser();p.add_argument("--years",type=int,choices=[5,10],required=True)
-    p.add_argument("--end",default="2026-10-19");p.add_argument("--fee",type=float,default=.00121)
+    p.add_argument("--end",default="2026-10-28");p.add_argument("--fee",type=float,default=.00121)
     a=p.parse_args();end=pd.Timestamp(a.end);start=end-pd.DateOffset(years=a.years)
     prices,opens,failures=download(start-pd.Timedelta(days=180),end)
     result,curve,orders=backtest(prices,start,a.fee,opens=opens)
