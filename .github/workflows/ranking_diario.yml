@@ -1,14 +1,10 @@
-
-name: Ranking Momentum IA 63 ruedas
+name: Ranking Momentum IA 63 ruedas y validación de rotación
 
 on:
   workflow_dispatch:
   schedule:
-    # Horario de verano EE.UU.
-    - cron: '17 20 * 3-10 1-5'
-    # Horario de invierno EE.UU.
-    - cron: '17 21 * 11,12,1,2 1-5'
-
+    # 21:35 UTC es posterior a las 16:20 de NY durante todo el año.
+    - cron: '35 21 * * 1-5'
 
 permissions:
   contents: write
@@ -16,24 +12,23 @@ permissions:
 jobs:
   update-ranking:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
           cache: pip
-
       - name: Instalar dependencias
         run: pip install -r requirements.txt
-
+      - name: Pruebas de reglas
+        run: python -m unittest -v test_rotacion_contrato test_auditar_rotacion_diaria
       - name: Calcular ranking
         run: python ranking.py --out resultados
-
+      - name: Auditar rotación con cartera real
+        run: python auditar_rotacion_diaria.py --out resultados/validacion_rotacion.json
       - name: Publicar resultados
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add resultados/
-          git diff --cached --quiet || (git commit -m "Ranking Momentum actualizado" && git push)
+          git diff --cached --quiet || (git commit -m "Ranking Momentum y validación actualizados" && git push)
