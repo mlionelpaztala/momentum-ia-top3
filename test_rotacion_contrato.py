@@ -26,8 +26,11 @@ class RotationContract(unittest.TestCase):
         self.assertEqual(decision(h,["A","B","C"],{"D"},True)["rotations"],[])
     def test_sma_entry_filter(self):
         self.assertEqual(decision(self.fixture(25),["A","B","C"],set(),True)["rotations"],[])
-    def test_inconsistent_coverage_blocks(self):
+    def test_new_candidate_without_seven_scores_is_excluded(self):
         h=self.fixture(25); del h[-1]["D"]
+        self.assertEqual(decision(h,["A","B","C"],{"D"},True)["status"],"NO_ROTATION")
+    def test_held_position_without_seven_scores_blocks(self):
+        h=self.fixture(25); del h[-1]["A"]
         self.assertEqual(decision(h,["A","B","C"],{"D"},True)["status"],"BLOCKED")
 
 if __name__=="__main__":unittest.main()
