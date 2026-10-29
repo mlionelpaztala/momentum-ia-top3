@@ -6,7 +6,7 @@ class RotationContract(unittest.TestCase):
         # A is held and outside Top3 if outside=True.
         rows=[]
         for _ in range(7):
-            rows.append({"A":10.0 if outside else 40.0, "B":30.0, "C":29.0, "D":28.0, "E":10.0+advantage})
+            rows.append({"A":10.0 if outside else 40.0, "B":30.0, "C":29.0, "D":28.0, "E":0.0})
         return rows
     def test_valid_rotation_on_review(self):
         h=self.fixture(advantage=25)
