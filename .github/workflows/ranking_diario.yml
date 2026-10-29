@@ -26,6 +26,8 @@ jobs:
         run: python ranking.py --out resultados
       - name: Auditar rotación con cartera real
         run: python auditar_rotacion_diaria.py --out resultados/validacion_rotacion.json
+      - name: Auditar cartera IBKR por separado
+        run: python auditar_rotacion_diaria.py --cartera cartera_ibkr.json --out resultados/validacion_rotacion_ibkr.json
       - name: Publicar resultados
         run: |
           git config user.name "github-actions[bot]"
