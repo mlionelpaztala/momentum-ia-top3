@@ -167,7 +167,8 @@ def backtest(prices, start, fee=0.00121, opens=None, anchor='2026-10-21'):
                             "old_outside":old not in ranked_day[:3],
                             "gap_ok":record[new]-record[old]>=5})
                     valid=(len(proof)==7 and all(x["old_outside"] and x["gap_ok"] for x in proof)
-                           and new in ranked[:3] and bool(eligible.at[d,new]))
+                           and new in sorted(common,key=lambda t:(-hist[-1][t],t))[:3]
+                           and bool(eligible.at[d,new]))
                     audit_rows.append({"signal_date":str(d.date()),"execution_date":str(days[i+1].date()),
                         "sell":old,"buy":new,"proof":proof,"validated":bool(valid)})
                     if not valid: raise RuntimeError("ROTACION NO HOMOLOGADA: "+str((old,new,d)))
