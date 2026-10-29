@@ -1,0 +1,7 @@
+{
+  "broker": "Interactive Brokers",
+  "moneda": "USD",
+  "estado": "PENDIENTE_CONFIRMAR_TENENCIAS_TRAS_OPERACIONES",
+  "momentum_abiertas": [],
+  "nota": "No copiar posiciones CEDEAR de Bull Market. Ingresar solo operaciones IBKR confirmadas. Sin tenencias confirmadas el motor bloquea rotación."
+}
