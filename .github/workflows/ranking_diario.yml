@@ -28,6 +28,10 @@ jobs:
         run: python auditar_rotacion_diaria.py --out resultados/validacion_rotacion.json
       - name: Auditar cartera IBKR por separado
         run: python auditar_rotacion_diaria.py --cartera cartera_ibkr.json --out resultados/validacion_rotacion_ibkr.json
+      - name: Registrar señales de podio IBKR sin ejecutar órdenes
+        run: python registro_senales_ibkr.py
+      - name: Calcular rendimiento diario IBKR en USD
+        run: python rendimiento_ibkr.py
       - name: Publicar resultados
         run: |
           git config user.name "github-actions[bot]"
