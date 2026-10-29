@@ -1,7 +1,117 @@
 {
   "broker": "Interactive Brokers",
   "moneda": "USD",
-  "estado": "PENDIENTE_CONFIRMAR_TENENCIAS_TRAS_OPERACIONES",
-  "momentum_abiertas": [],
-  "nota": "No copiar posiciones CEDEAR de Bull Market. Ingresar solo operaciones IBKR confirmadas. Sin tenencias confirmadas el motor bloquea rotación."
+  "estado": "COMPRAS_CONFIRMADAS",
+  "fecha_inicio_momentum": "2026-10-29",
+  "momentum_abiertas": [
+    {
+      "ticker": "MRNA",
+      "cantidad": 118,
+      "ppc_usd": 220.82,
+      "costo_bruto_usd": 26056.76,
+      "comision_usd": 1,
+      "compras": [
+        {
+          "cantidad": 100,
+          "precio_usd": 220.82,
+          "importe_usd": 22082,
+          "comision_usd": 0,
+          "hora_argentina": "10:43:02"
+        },
+        {
+          "cantidad": 18,
+          "precio_usd": 220.82,
+          "importe_usd": 3974.76,
+          "comision_usd": 1,
+          "hora_argentina": "10:43:02"
+        }
+      ],
+      "estado": "ABIERTA",
+      "fecha_compra_confirmada": "2026-10-29"
+    },
+    {
+      "ticker": "PLTR",
+      "cantidad": 134,
+      "ppc_usd": 195.1238805970149,
+      "costo_bruto_usd": 26146.6,
+      "comision_usd": 2,
+      "compras": [
+        {
+          "cantidad": 100,
+          "precio_usd": 195.12,
+          "importe_usd": 19512,
+          "comision_usd": 0,
+          "hora_argentina": "10:43:45"
+        },
+        {
+          "cantidad": 33,
+          "precio_usd": 195.12,
+          "importe_usd": 6438.96,
+          "comision_usd": 1,
+          "hora_argentina": "10:43:45"
+        },
+        {
+          "cantidad": 1,
+          "precio_usd": 195.64,
+          "importe_usd": 195.64,
+          "comision_usd": 1,
+          "hora_argentina": "10:46:23"
+        }
+      ],
+      "estado": "ABIERTA",
+      "fecha_compra_confirmada": "2026-10-29"
+    },
+    {
+      "ticker": "CRWD",
+      "cantidad": 100,
+      "ppc_usd": 260.388,
+      "costo_bruto_usd": 26038.8,
+      "comision_usd": 1,
+      "compras": [
+        {
+          "cantidad": 60,
+          "precio_usd": 260.44,
+          "importe_usd": 15626.4,
+          "comision_usd": 0,
+          "hora_argentina": "10:45:10"
+        },
+        {
+          "cantidad": 40,
+          "precio_usd": 260.31,
+          "importe_usd": 10412.4,
+          "comision_usd": 1,
+          "hora_argentina": "10:45:10"
+        }
+      ],
+      "estado": "ABIERTA",
+      "fecha_compra_confirmada": "2026-10-29"
+    }
+  ],
+  "capital_invertido_bruto_usd": 78242.16,
+  "comisiones_compra_usd": 4,
+  "costo_total_usd": 78246.16,
+  "otras_posiciones_fuera_momentum": [
+    {
+      "ticker": "GOOGL",
+      "cantidad": 378.1252,
+      "origen": "Captura posiciones IBKR 29/10/2026",
+      "plan": "Mantener fuera de Momentum durante 2026"
+    },
+    {
+      "ticker": "TSM",
+      "cantidad": 226.7583,
+      "origen": "Captura posiciones IBKR 29/10/2026",
+      "plan": "Mantener fuera de Momentum durante 2026"
+    }
+  ],
+  "meta": {
+    "estado": "NO_FIGURA_EN_CAPTURA_ACTUAL_DE_POSICIONES",
+    "nota": "No inventar precio ni resultado de venta META; confirmar extracto"
+  },
+  "deuda_margen": {
+    "estado": "NO_VERIFICADA",
+    "nota": "Pantalla muestra efectivo USD +30.68, pero se requiere extracto de balances para confirmar deuda/costos"
+  },
+  "fuente": "Capturas de ejecuciones y tenencias IBKR 29/10/2026",
+  "nota": "Separada de CEDEARs Bull Market; precios, comisiones y cantidades por ejecución. Rentabilidad calculada a partir de fecha de inicio."
 }
