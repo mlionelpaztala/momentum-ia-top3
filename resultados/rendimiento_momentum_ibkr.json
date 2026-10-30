@@ -1,28 +1,28 @@
 {
   "estado": "CALCULADO",
-  "fecha_cierre": "2026-10-29",
+  "fecha_cierre": "2026-10-30",
   "inicio": "2026-10-29",
   "capital_inicial_usd": 78246.16,
-  "valor_posiciones_usd": 78720.96,
-  "resultado_acumulado_usd": 474.8,
-  "rentabilidad_acumulada_pct": 0.6068,
-  "rentabilidad_diaria_pct": 0.6068,
+  "valor_posiciones_usd": 75876.7,
+  "resultado_acumulado_usd": -2369.46,
+  "rentabilidad_acumulada_pct": -3.0282,
+  "rentabilidad_diaria_pct": -3.6131,
   "metodologia": "Mark-to-market en USD, sin dividendos ni operaciones posteriores; comisiones de compra incluidas; no GOOGL/TSM/Argentina.",
   "posiciones": [
     {
       "ticker": "MRNA",
       "cantidad": 118,
-      "cierre_usd": 222.76
+      "cierre_usd": 221.72
     },
     {
       "ticker": "PLTR",
       "cantidad": 134,
-      "cierre_usd": 196.42
+      "cierre_usd": 184.11
     },
     {
       "ticker": "CRWD",
       "cantidad": 100,
-      "cierre_usd": 261.15
+      "cierre_usd": 250.43
     }
   ]
 }
